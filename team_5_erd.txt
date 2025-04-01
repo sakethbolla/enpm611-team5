@@ -1,0 +1,47 @@
+---
+config:
+  theme: forest
+---
+erDiagram
+    ISSUE ||--o{ COMMENT : has
+    ISSUE ||--o{ LABEL : tagged_with
+    ISSUE ||--o{ REACTION : receives
+    ISSUE ||--o| USER : created_by
+    USER ||--o{ COMMENT : writes
+    COMMENT ||--o| USER : written_by
+    ISSUE {
+        int id
+        string title
+        string state
+        datetime created_at
+        datetime updated_at
+        datetime closed_at
+        int comments_count
+        string body
+    }
+    USER {
+        int id
+        string login
+        string url
+    }
+    COMMENT {
+        int id
+        datetime created_at
+        string body
+    }
+    LABEL {
+        int id
+        string name
+        string color
+    }
+    REACTION {
+        int total_count
+        int plus_one
+        int minus_one
+        int laugh
+        int hooray
+        int confused
+        int heart
+        int rocket
+        int eyes
+    }
