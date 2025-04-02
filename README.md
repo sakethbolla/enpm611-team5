@@ -1,3 +1,6 @@
+# Porject Charter
+[(https://docs.google.com/document/d/16KQ0TdYPjru0ybSvOzH2ZhR_TEd5EkS-xxT_BpsvuJk/edit)
+
 # ENPM611 Project Application Template
 
 This is the template for the ENPM611 class project. Use this template in conjunction with the provided data to implement an application that analyzes GitHub issues for the [poetry](https://github.com/python-poetry/poetry/issues) Open Source project and generates interesting insights.
