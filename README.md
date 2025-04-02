@@ -1,6 +1,7 @@
 # Project Charter
 
 https://docs.google.com/document/d/1_9tk8jVkyPX7NBMOhPeGDAw0Sfwj2PJwHRpMTAYHx1E/edit?usp=sharing
+
 The above link containts the project managemt approach and the details about the outlines and the key aspects of the project, such as its objectives, scope, stakeholders, deliverables, timeline, and potential risks. the charter is particularly helpful because it establishes a clear roadmap for analyzing GitHub issues in the Python Poetry repository. It ensures that all contributors are aligned on the project's goals (e.g., generating insights from GitHub data), the deliverables (e.g., ERD diagrams, JSON files, visualizations), and the timeline for completion. By documenting these details, the charter prevents misunderstandings, minimizes scope creep, and serves as a reference point throughout the project lifecycle.
 Additionally, having this document ensures that it is easily accessible to all team members and stakeholders. This promotes transparency and allows everyone involved to stay informed about the project's direction and progress helping us effectively view and complete tasks without discrepancy. 
 
