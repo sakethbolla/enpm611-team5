@@ -1,0 +1,89 @@
+---
+config:
+  theme: forest
+title: TEAM 5 CLASS DIAGRAM
+---
+classDiagram
+direction TB
+    class Issue {
+	    +int id
+	    +int number
+	    +string title
+	    +string state
+	    +Date created_at
+	    +Date updated_at
+	    +Date closed_at
+	    +string body
+	    +string state_reason
+	    +boolean locked
+	    +string url
+	    +string repository_url
+	    +string labels_url
+	    +string comments_url
+	    +string events_url
+	    +string html_url
+	    +getResolutionTime() float
+    }
+    class Event {
+	    +int id
+	    +string event
+	    +Date created_at
+	    +string commit_id
+	    +string commit_url
+	    +string state_reason
+	    +string url
+    }
+    class User {
+	    +string login
+	    +int id
+	    +string type
+	    +string url
+	    +string html_url
+	    +getProfile() string
+    }
+    class Label {
+	    +int id
+	    +string name
+	    +string color
+	    +boolean default
+	    +string description
+    }
+    class Comment {
+	    +int id
+	    +string body
+	    +Date created_at
+    }
+    class Reaction {
+	    +int total_count
+	    +getSummary() string
+    }
+    class Config {
+	    +string ENPM611_PROJECT_DATA_PATH
+	    +string GITHUB_TOKEN
+	    +string OWNER
+	    +string REPO
+	    +loadConfig()
+    }
+    class DataLoader {
+	    +loadData(filePath: string) Issue[]
+    }
+    class FetchIssues {
+	    +fetchIssues() Issue[]
+	    +saveIssues(issues: Issue[], filePath: string)
+    }
+    class Analysis {
+	    +analyzeIssueStatus(issues: Issue[])
+	    +analyzeResolutionTime(issues: Issue[])
+	    +analyzeContributorActivity(issues: Issue[])
+	    +analyzeLabelDistribution(issues: Issue[])
+    }
+
+    Issue "1" o-- "*" Event : "has"
+    Issue "1" o-- "1" User : "created_by"
+    Issue "1" o-- "*" Label : "tagged_with"
+    Issue "1" o-- "*" Comment : "has"
+    Issue "1" o-- "1" Reaction : "reacts"
+    Config <|-- DataLoader : uses
+    DataLoader ..> Issue : loads
+    FetchIssues ..> Issue : fetches
+    Analysis ..> Issue : analyzes
