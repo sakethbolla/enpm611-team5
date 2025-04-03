@@ -1,0 +1,13 @@
+Explanation
+	•	ISSUE: Contains core details about an issue including its state and associated URLs.
+	•	EVENT: Represents actions on an issue (e.g., labeled, closed) with relevant fields.
+	•	USER: Represents a GitHub user (used for issue creator, event actor, and closer).
+	•	LABEL: Represents labels applied to an issue or within an event.
+	•	REACTION: Summarizes reactions to an issue.
+	•	SUBISSUES: Represents the summary of sub-issues.
+Relationships:
+	•	An ISSUE “has” many EVENT entries.
+	•	An ISSUE is “created_by” one USER and “closed_by” one USER.
+	•	An ISSUE can have multiple LABELs (“tagged_with”).
+	•	An ISSUE has one REACTION summary and one SUBISSUES summary.
+	•	Each EVENT is “performed_by” one USER and may “apply” a LABEL.

@@ -3,45 +3,60 @@ config:
   theme: forest
 ---
 erDiagram
-    ISSUE ||--o{ COMMENT : has
-    ISSUE ||--o{ LABEL : tagged_with
-    ISSUE ||--o{ REACTION : receives
-    ISSUE ||--o| USER : created_by
-    USER ||--o{ COMMENT : writes
-    COMMENT ||--o| USER : written_by
     ISSUE {
-        int id
-        string title
-        string state
-        datetime created_at
-        datetime updated_at
-        datetime closed_at
-        int comments_count
-        string body
+      int id
+      int number
+      string title
+      string state
+      Date created_at
+      Date updated_at
+      Date closed_at
+      string body
+      string state_reason
+      boolean locked
+      string url
+      string repository_url
+      string labels_url
+      string comments_url
+      string events_url
+      string html_url
+    }
+    EVENT {
+      int id
+      string event
+      Date created_at
+      string commit_id
+      string commit_url
+      string state_reason
+      string url
     }
     USER {
-        int id
-        string login
-        string url
-    }
-    COMMENT {
-        int id
-        datetime created_at
-        string body
+      string login
+      int id
+      string type
+      string url
+      string html_url
     }
     LABEL {
-        int id
-        string name
-        string color
+      int id
+      string name
+      string color
+      boolean default
+      string description
     }
     REACTION {
-        int total_count
-        int plus_one
-        int minus_one
-        int laugh
-        int hooray
-        int confused
-        int heart
-        int rocket
-        int eyes
+      int total_count
     }
+    SUBISSUES {
+      int total
+      int completed
+      float percent_completed
+    }
+    ISSUE ||--o{ EVENT : "has"
+    ISSUE ||--|| USER : "created_by"
+    ISSUE ||--o{ LABEL : "tagged_with"
+    ISSUE ||--|| REACTION : "reacts"
+    ISSUE ||--|| SUBISSUES : "sub_issues_summary"
+    EVENT }o--|| USER : "performed_by"
+    EVENT ||--|| LABEL : "applies"
+    ISSUE ||--|| USER : "closed_by"
