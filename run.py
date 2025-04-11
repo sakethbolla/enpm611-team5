@@ -4,7 +4,9 @@
 Starting point of the application. This module is invoked from
 the command line to run the analyses.
 """
-
+import sys
+sys.path.append('./')
+from feature_1.active_contributors import main as feature_1_main
 import argparse
 
 import config
@@ -48,7 +50,7 @@ config.overwrite_from_args(args)
 if args.feature == 0:
     ExampleAnalysis().run()
 elif args.feature == 1:
-    pass # TODO call first analysis
+    feature_1_main()
 elif args.feature == 2:
     pass # TODO call second analysis
 elif args.feature == 3:
