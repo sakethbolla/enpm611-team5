@@ -9,7 +9,7 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
-from Analysis import analysisThree
+from Analysis import analysisTwo, analysisThree
 
 
 def parse_args():
@@ -52,7 +52,7 @@ elif args.feature == 1:
     #analysisOne.run()
     pass  # TODO call second analysis
 elif args.feature == 2:
-    pass # TODO call second analysis
+    analysisTwo.run()
 elif args.feature == 3:
     analysisThree.run(label=args.label)
 else:
