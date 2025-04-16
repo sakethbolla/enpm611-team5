@@ -1,84 +1,38 @@
 import json
-from collections import Counter, defaultdict
+from collections import defaultdict
 import matplotlib.pyplot as plt
 
-def load_data():
-    with open("data/poetry_data.json", 'r', encoding='utf-8') as f:
-        return json.load(f)
+# Load the JSON data
+with open('/mnt/data/poetry_data.json', 'r', encoding='utf-8') as f:
+    issues = json.load(f)
 
-def analyze_contributors_and_reactions(data):
-    creators = Counter()
-    closers = Counter()
-    reactions = defaultdict(int)
+# Counters for issue creators and issue closers
+created_by_counter = defaultdict(int)
+closed_by_counter = defaultdict(int)
 
-    for issue in data:
-        creator = issue.get('user', {}).get('login')
-        if creator:
-            creators[creator] += 1
+# Count issues created and closed by each user
+for issue in issues:
+    if 'user' in issue and issue['user'] and 'login' in issue['user']:
+        created_by_counter[issue['user']['login']] += 1
+    if 'closed_by' in issue and issue['closed_by'] and 'login' in issue['closed_by']:
+        closed_by_counter[issue['closed_by']['login']] += 1
 
-        closed_by = issue.get('closed_by')
-        if closed_by and isinstance(closed_by, dict):
-            closer = closed_by.get('login')
-            if closer:
-                closers[closer] += 1
+# Combine the counts for total activity (creation + closure)
+combined_activity = defaultdict(int)
+for user in set(list(created_by_counter.keys()) + list(closed_by_counter.keys())):
+    combined_activity[user] = created_by_counter[user] + closed_by_counter[user]
 
-        issue_reactions = issue.get('reactions', {})
-        for reaction, count in issue_reactions.items():
-            if reaction != 'url':
-                reactions[reaction] += count
+# Get top 20 most active contributors
+top_contributors = sorted(combined_activity.items(), key=lambda x: x[1], reverse=True)[:20]
 
-    return creators, closers, reactions
+# Prepare data for bar chart
+users = [user for user, count in top_contributors]
+counts = [count for user, count in top_contributors]
 
-def plot_combined(creators, closers, reactions, top_n=10):
-    top_creators = creators.most_common(top_n)
-    top_closers = closers.most_common(top_n)
-    reaction_items = sorted(reactions.items(), key=lambda x: x[1], reverse=True)
-
-    fig, axs = plt.subplots(3, 1, figsize=(12, 15))
-
-    # Top Creators
-    users, counts = zip(*top_creators)
-    axs[0].bar(users, counts)
-    axs[0].set_title('Top Issue Creators')
-    axs[0].tick_params(axis='x', rotation=45)
-    axs[0].set_ylabel('Created')
-
-    # Top Closers
-    users, counts = zip(*top_closers)
-    axs[1].bar(users, counts, color='orange')
-    axs[1].set_title('Top Issue Closers')
-    axs[1].tick_params(axis='x', rotation=45)
-    axs[1].set_ylabel('Closed')
-
-    # Reactions
-    types, counts = zip(*reaction_items)
-    axs[2].bar(types, counts, color='green')
-    axs[2].set_title('Total Reactions on Issues')
-    axs[2].tick_params(axis='x', rotation=45)
-    axs[2].set_ylabel('Reactions')
-
-    plt.tight_layout()
-    plt.savefig('combined_issue_analysis.png')
-    plt.show()
-
-def main():
-    data = load_data('data/poetry.json')  # Adjust path as needed
-    creators, closers, reactions = analyze_contributors_and_reactions(data)
-
-    print("\nTop Issue Creators:")
-    for user, count in creators.most_common(10):
-        print(f"{user}: {count}")
-
-    print("\nTop Issue Closers:")
-    for user, count in closers.most_common(10):
-        print(f"{user}: {count}")
-
-    print("\nReactions Summary:")
-    for reaction, count in sorted(reactions.items(), key=lambda x: x[1], reverse=True):
-        print(f"{reaction}: {count}")
-
-    # Plot combined chart
-    plot_combined(creators, closers, reactions)
-
-if __name__ == '__main__':
-    main()
+# Plotting the bar chart
+plt.figure(figsize=(12, 6))
+plt.barh(users[::-1], counts[::-1])
+plt.xlabel('Total Issues Created + Closed')
+plt.title('Top 20 Most Active Contributors')
+plt.tight_layout()
+plt.show()
