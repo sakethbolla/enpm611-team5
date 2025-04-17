@@ -1,18 +1,18 @@
-# ENPM611 Project 📊 GitHub Issue Analysis
+# ENPM611 Project 📊 GitHub Issue Analysis - Team 5
 
-Introduction:
+### Introduction:
 Welcome to our data-driven analysis of GitHub issues using the open-source Poetry [poetry](https://github.com/python-poetry/poetry/issues) project. This repository explores issue resolution patterns, contributor behavior, and community interactions by processing GitHub issue data.
 
-Project Overview:
+### Project Overview:
 This project was developed as part of the ENPM611 Software Engineering class. The goal is to extract meaningful insights from GitHub Issues (not commits), visualizing patterns around labels, contributors, and reactions.
 This is the template for the ENPM611 class project.
 
-Objective:
+### Objective:
 Investigate how issues are labeled, discussed, and resolved
 Identify top contributors and common bottlenecks
 Visualize trends in issue handling using matplotlib
 
-Features Implemented:
+### Features Implemented:
 
 Feature 1: Contributor and Reaction Analysis
 1. Identifies the top issue creators and closers
@@ -33,7 +33,7 @@ Outputs:
 4. Most active contributor and resolved count
 5. Visualization: histogram of close times + annotations
 
-This application has below important files:
+### Files Description:
 
 - `scripts/fetch_issues.py`: Implements the functionality to fetch all the issues by using GITHUB_TOKEN and returns a json file called poetry_data.json that has all the issues.
 - `data/poetry_data.json`: A Json file with all the issues.
@@ -48,31 +48,14 @@ This application has below important files:
 - `Figures/Analysis 1 Figure.png`: Resultant figure for the Analysis One.
 - `Figures/Analysis 2 Figure.png`: Resultant figure for the Analysis Two.
 - `Figures/Analysis 3 Figure.png`: Resultant figure for the Analysis Three.
+- `ENPM611 Project Charter - Team 5.pdf`: A project file of our project.
 
-- Not Used Files:
+### Not Used Files:
 - `data_loader.py`: Utility to load the issues from the provided data file and returns the issues in a runtime data structure (e.g., objects)
 - `model.py`: Implements the data model into which the data file is loaded. The data can then be accessed by accessing the fields of objects.
 
 
-Folder Structure & File Types:
-├── config.json                  # CLI entry point to trigger feature analyses
-├── config.py                    # CLI entry point to trigger feature analyses
-├── run.py                       # CLI entry point to trigger feature analyses
-├── scripts/
-│   └── fetch_issues.py          # Compressed GitHub issue data
-├── data/
-│   └── poetry_data.json.gz      # Compressed GitHub issue data
-├── Analysis/
-│   ├── analysis_one.py          # Feature 1: Contributors & Reactions
-│   ├── analysis_two.py          # Feature 2: Labels & Resolution Time
-│   └── analysis_three.py        # Feature 3: Label-Specific Insights
-├── Figures/
-│   ├── analysis_one.py          # Feature 1: Contributors & Reactions
-│   ├── analysis_two.py          # Feature 2: Labels & Resolution Time
-│   └── analysis_three.py        # Feature 3: Label-Specific Insights
-└── README.md
-
-File Types Used:
+### File Types Used:
 .py — Python scripts for feature logic and CLI execution
 .json.gz — Gzipped JSON file containing GitHub issues
 .png — Visualization outputs (e.g., charts)
@@ -106,14 +89,9 @@ pip install -r requirements.txt
 python fetch_issues.py
 ```
 
-### Download and configure the data file
-
-Download the data file (in `json` format) from the project assignment in Canvas and update the `config.json` with the path to the file. Note, you can also specify an environment variable by the same name as the config setting (`ENPM611_PROJECT_DATA_PATH`) to avoid committing your personal path to the repository.
-
-
 ### Run an analysis
 
-With everything set up, you should be able to run the existing example analysis:
+With everything set up, you should be able to run the analysis:
 
 ```
 python run.py --feature 0
@@ -144,3 +122,10 @@ That will output basic information about the issues to the command line.
 To make the application easier to debug, runtime configurations are provided to run each of the analyses you are implementing. When you click on the run button in the left-hand side toolbar, you can select to run one of the three analyses or run the file you are currently viewing. That makes debugging a little easier. This run configuration is specified in the `.vscode/launch.json` if you want to modify it.
 
 The `.vscode/settings.json` also customizes the VSCode user interface sligthly to make navigation and debugging easier. But that is a matter of preference and can be turned off by removing the appropriate settings.
+
+## Team Members
+1. Bhavna Kumari, bhavna@umd.edu
+2. Bolla Sai Saketh, sakethb@umd.edu
+3. Souhardya Pal, spal05@umd.edu
+4. Palak Gupta, pgupta13@umd.edu
+
