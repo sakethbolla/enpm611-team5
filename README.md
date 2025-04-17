@@ -5,7 +5,6 @@ Welcome to our data-driven analysis of GitHub issues using the open-source Poetr
 
 ### Project Overview:
 This project was developed as part of the ENPM611 Software Engineering class. The goal is to extract meaningful insights from GitHub Issues (not commits), visualizing patterns around labels, contributors, and reactions.
-This is the template for the ENPM611 class project.
 
 ### Objective:
 Investigate how issues are labeled, discussed, and resolved
