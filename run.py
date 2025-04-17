@@ -9,7 +9,7 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
-from Analysis import analysisThree,analysisTwo
+from Analysis import analysisThree,analysisTwo,analysisOne
 
 
 def parse_args():
@@ -49,8 +49,7 @@ config.overwrite_from_args(args)
 if args.feature == 0:
     ExampleAnalysis().run()
 elif args.feature == 1:
-    #analysisOne.run()
-    pass  # TODO call second analysis
+    analysisOne.run()
 elif args.feature == 2:
     analysisTwo.run()
 elif args.feature == 3:
