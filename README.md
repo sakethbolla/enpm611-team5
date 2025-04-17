@@ -49,13 +49,11 @@ If you want to run feature 2 : Which shows the graphical represenation of the No
 
 ```
 python run.py --feature 2
-
 ```
 If you want to run feature 3 : This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues: 
 
 ```
 python run.py --feature 3 --label kind/feature
-
 ```
 
 That will output basic information about the issues to the command line.
