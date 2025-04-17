@@ -4,10 +4,15 @@ This is the template for the ENPM611 class project. Use this template in conjunc
 
 This application template implements some of the basic functions:
 
+- `scripts/fetch_issues.py`: Implements the functionality to fetch all the issues by using GITHUB_TOKEN and returns a json file called poetry_data.json that has all the issues.
 - `data_loader.py`: Utility to load the issues from the provided data file and returns the issues in a runtime data structure (e.g., objects)
 - `model.py`: Implements the data model into which the data file is loaded. The data can then be accessed by accessing the fields of objects.
 - `config.py`: Supports configuring the application via the `config.json` file. You can add other configuration paramters to the `config.json` file.
 - `run.py`: This is the module that will be invoked to run your application. Based on the `--feature` command line parameter, one of the three analyses you implemented will be run. You need to extend this module to call other analyses.
+- `data/poetry_data.json`: A Json file with all the issues.
+- `Analysis/analysisOne`: This shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary.
+- `Analysis/analysisTwo`: The graphical representation of the No of issues vs kind of label with their average resolution time.
+- `Analysis/analysisThree`: This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues
 
 With the utility functions provided, you should focus on implementing creative analyses that generate intersting and insightful insights.
 
@@ -39,13 +44,13 @@ With everything set up, you should be able to run the existing example analysis:
 python run.py --feature 0
 ```
 
-If you want to run feature 1 : Which shows the graphical represenation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary :
+If you want to run feature 1 : Which shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary :
 
 ```
 python run.py --feature 1
 ```
 
-If you want to run feature 2 : Which shows the graphical represenation of the No of issues vs kind of label with their average resolution time :
+If you want to run feature 2 : Which shows the graphical representation of the No of issues vs kind of label with their average resolution time :
 
 ```
 python run.py --feature 2
