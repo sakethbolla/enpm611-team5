@@ -39,6 +39,25 @@ With everything set up, you should be able to run the existing example analysis:
 python run.py --feature 0
 ```
 
+If you want to run feature 1 : Which shows the graphical represenation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary :
+
+```
+python run.py --feature 1
+```
+
+If you want to run feature 2 : Which shows the graphical represenation of the No of issues vs kind of label with their average resolution time :
+
+```
+python run.py --feature 2
+
+```
+If you want to run feature 3 : This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues: 
+
+```
+python run.py --feature 3 --label kind/feature
+
+```
+
 That will output basic information about the issues to the command line.
 
 
