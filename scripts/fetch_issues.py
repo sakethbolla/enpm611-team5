@@ -7,7 +7,7 @@ if not GITHUB_TOKEN:
     raise ValueError("GitHub token not set in environment variables.")
 
 # GitHub personal access token
-def load_config(config_path="/Users/bhavnakumari/hhh/enpm611-team5/config.json"):
+def load_config(config_path="config.json"):
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -67,7 +67,7 @@ def add_events_to_issues(issues):
     return issues
 
 
-def save_issues_to_json(issues, file_path="/Users/bhavnakumari/hhh/enpm611-team5/data/poetry_data.json"):
+def save_issues_to_json(issues, file_path="data/poetry_data.json"):
     # Ensure the directory exists
     import os
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
