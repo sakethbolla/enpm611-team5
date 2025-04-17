@@ -14,17 +14,17 @@ Visualize trends in issue handling using matplotlib
 
 ### Features Implemented:
 
-Feature 1: Contributor and Reaction Analysis
+#### Feature 1: Contributor and Reaction Analysis
 1. Identifies the top issue creators and closers
 2. Counts all reactions (e.g., thumbs up, heart, rocket)
 3. Visualizes results using a three-panel bar chart
 
-Feature 2: Label Frequency and Resolution Time
+#### Feature 2: Label Frequency and Resolution Time
 1. Analyzes most-used labels across all issues
 2. Calculates average resolution time per label (in days)
 3. Visualized with bar chart + annotations
 
-Feature 3: Label-Based Deep Dive (User Input Required)
+#### Feature 3: Label-Based Deep Dive (User Input Required)
 1. Input a label like bug, status/triage, or kind/feature
 Outputs:
 1. Total number of issues
@@ -56,10 +56,10 @@ Outputs:
 
 
 ### File Types Used:
-.py — Python scripts for feature logic and CLI execution
-.json.gz — Gzipped JSON file containing GitHub issues
-.png — Visualization outputs (e.g., charts)
-.md — Markdown file for documentation (this README)
+- .py — Python scripts for feature logic and CLI execution
+-  .json.gz — Gzipped JSON file containing GitHub issues
+-   .png — Visualization outputs (e.g., charts)
+-  md — Markdown file for documentation (this README)
 
 ## Setup
 
@@ -79,7 +79,7 @@ pip install -r requirements.txt
     b. Open your ENPM611 project folder where fetch_issues.py is located.
 
  2. Set Your GitHub Token
-    a. In config.json, make sure the "GITHUB_TOKEN" key is filled with a valid GitHub Personal Access Token to avoid rate limits:
+    a. In config.json, make sure the "GITHUB_TOKEN" key is filled with a valid GitHub Personal Access Token to avoid rate limits
 
 3. Open fetch_issues.py
   a. In the Explorer sidebar, click fetch_issues.py to open the script.
@@ -93,22 +93,18 @@ python fetch_issues.py
 
 With everything set up, you should be able to run the analysis:
 
-```
-python run.py --feature 0
-```
-
-If you want to run feature 1 : Which shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary :
+If you want to run feature 1 : Which shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary
 
 ```
 python run.py --feature 1
 ```
 
-If you want to run feature 2 : Which shows the graphical representation of the No of issues vs kind of label with their average resolution time :
+If you want to run feature 2 : Which shows the graphical representation of the No of issues vs kind of label with their average resolution time
 
 ```
 python run.py --feature 2
 ```
-If you want to run feature 3 : This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues: 
+If you want to run feature 3 : This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues
 
 ```
 python run.py --feature 3 --label kind/feature
