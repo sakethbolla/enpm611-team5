@@ -1,0 +1,24 @@
+NOTE:
+1. This file contains Analysis Three Coverage percentage table .
+
+2. In order to run the coverage of this file (tests/TestAnalysis/test_analysis_three.py) you need to run the below commands.
+
+3. python -m coverage run --source=Analysis -m unittest discover tests
+python -m coverage report --omit="tests/*"
+
+4. /* IMP */ In order to view the coverage report in an HTML format run the below command:
+
+python -m coverage run --source=Analysis,scripts -m unittest discover tests
+python -m coverage html
+--------------------------------------------------------------------------------------
+
+Ran 4 tests in 0.234s
+
+OK
+Name                        Stmts   Miss  Cover
+-----------------------------------------------
+Analysis/analysisOne.py        73     73     0%
+Analysis/analysisThree.py      70      1    99%
+Analysis/analysisTwo.py        47     47     0%
+-----------------------------------------------
+TOTAL                         190    121    36%
