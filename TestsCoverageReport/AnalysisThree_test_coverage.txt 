@@ -8,7 +8,7 @@ python -m coverage report --omit="test_*"
 
 4. In order to view the coverage report in an HTML format run the below command:
 
-python -m coverage run --source=Analysis,script -m unittest discover tests
+python -m coverage run --source=Analysis,scripts -m unittest discover tests
 python -m coverage html
 --------------------------------------------------------------------------------------
 
