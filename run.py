@@ -9,7 +9,7 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
-from Analysis import analysisThree,analysisTwo,analysisOne
+from analysis import analysisThree,analysisTwo,analysisOne
 
 
 def parse_args():
