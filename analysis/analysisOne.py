@@ -42,6 +42,9 @@ def plot_combined(creators, closers, reactions, top_n=10):
     - Top issue closers
     - Total reaction counts
     """
+    if not creators or not closers or not reactions:
+        print("⚠️ No data to plot.")
+        return
     top_creators = creators.most_common(top_n)
     top_closers = closers.most_common(top_n)
     reaction_items = sorted(reactions.items(), key=lambda x: x[1], reverse=True)

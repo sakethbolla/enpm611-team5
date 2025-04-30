@@ -8,7 +8,7 @@ python -m coverage report --omit="tests/*"
 
 4. /* IMP */ In order to view the coverage report in an HTML format run the below command:
 
-python -m coverage run --source=Analysis,scripts -m unittest discover tests
+python -m coverage run --source=analysis,scripts -m unittest discover tests
 python -m coverage html
 --------------------------------------------------------------------------------------
 
@@ -17,8 +17,9 @@ Ran 4 tests in 0.234s
 OK
 Name                        Stmts   Miss  Cover
 -----------------------------------------------
-Analysis/analysisOne.py        73     73     0%
-Analysis/analysisThree.py      70      1    99%
-Analysis/analysisTwo.py        47     47     0%
+analysis/analysisOne.py        75      0   100%
+analysis/analysisThree.py      71      1    99%
+analysis/analysisTwo.py        47     47     0%
 -----------------------------------------------
-TOTAL                         190    121    36%
+TOTAL                         193     48    75%
+
