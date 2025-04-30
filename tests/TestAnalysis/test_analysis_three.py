@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, mock_open
-from Analysis import analysisThree
+from analysis import analysisThree
 
 class TestAnalysisThree(unittest.TestCase):
 
