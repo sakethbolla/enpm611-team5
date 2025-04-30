@@ -1,13 +1,7 @@
 import json
 from collections import Counter, defaultdict
 import matplotlib.pyplot as plt
-
-def load_data(filepath):
-    """
-    Loads JSON data from the specified file path.
-    """
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+import gzip
 
 def analyze_contributors_and_reactions(data):
     """
@@ -97,8 +91,12 @@ def run():
     Entry point to load data, analyze contributors and reactions,
     print stats, and generate visualization.
     """
-    filepath = "data/poetry_data.json"
-    data = load_data(filepath)
+    """
+    Loads JSON data from the specified file path.
+    """
+    with gzip.open("data/poetry_data.json.gz", "rt", encoding="utf-8") as f:
+        data = json.load(f)
+
     creators, closers, reactions = analyze_contributors_and_reactions(data)
 
     print("\n📌 Top 10 Issue Creators:")
