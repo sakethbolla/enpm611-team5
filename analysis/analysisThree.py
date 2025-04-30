@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+import gzip
 
 """
 This histogram visualizes how long it took to close GitHub issues tagged with the 'Type of Label like (kind/bug)' label. 
@@ -15,7 +16,7 @@ def run(label=None):
         return
 
     # Load data
-    with open("data/poetry_data.json", "r", encoding="utf-8") as f:
+    with gzip.open("data/poetry_data.json.gz", "rt", encoding="utf-8") as f:
         data = json.load(f)
 
     # Filter issues by label
