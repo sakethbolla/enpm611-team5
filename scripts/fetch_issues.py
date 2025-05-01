@@ -77,5 +77,5 @@ def save_issues_to_json(issues, file_path="../data/poetry_data.json.gz"):
 
 if __name__ == "__main__":
     issues = fetch_issues()
-    issues = add_events_to_issues(issues)
+    #issues = add_events_to_issues(issues)
     save_issues_to_json(issues)

@@ -2,12 +2,12 @@ import unittest
 from unittest.mock import patch, mock_open, MagicMock
 import json
 from collections import defaultdict
-from analysis import analysisTwo
+from analysis import frequentLabelAndResolutionTimeAnalysis
 from datetime import datetime
 import pandas as pd
 import gzip
 
-class TestAnalysisTwo(unittest.TestCase):
+class TestfrequentLabelAndResolutionTimeAnalysis(unittest.TestCase):
 
     def setUp(self):
         self.sample_issues = [
@@ -29,9 +29,9 @@ class TestAnalysisTwo(unittest.TestCase):
         ]
 
     def test_parse_date_valid_and_invalid(self):
-        valid = analysisTwo.parse_date("2024-01-01T00:00:00Z")
-        invalid = analysisTwo.parse_date(None)
-        malformed = analysisTwo.parse_date("bad-date")
+        valid = frequentLabelAndResolutionTimeAnalysis.parse_date("2024-01-01T00:00:00Z")
+        invalid = frequentLabelAndResolutionTimeAnalysis.parse_date(None)
+        malformed = frequentLabelAndResolutionTimeAnalysis.parse_date("bad-date")
         self.assertIsInstance(valid, datetime)
         self.assertIsNone(invalid)
         self.assertIsNone(malformed)
@@ -44,7 +44,7 @@ class TestAnalysisTwo(unittest.TestCase):
         mock_json_load.return_value = self.sample_issues
 
         with patch("builtins.print") as mock_print:
-            analysisTwo.run(top_n=2)
+            frequentLabelAndResolutionTimeAnalysis.run(top_n=2)
 
             mock_savefig.assert_called_once()
             mock_show.assert_called_once()
@@ -56,8 +56,8 @@ class TestAnalysisTwo(unittest.TestCase):
         label_res_times = defaultdict(list)
 
         for issue in self.sample_issues:
-            created = analysisTwo.parse_date(issue.get("created_at"))
-            closed = analysisTwo.parse_date(issue.get("closed_at"))
+            created = frequentLabelAndResolutionTimeAnalysis.parse_date(issue.get("created_at"))
+            closed = frequentLabelAndResolutionTimeAnalysis.parse_date(issue.get("closed_at"))
             label_names = [lbl.get("name") for lbl in issue.get("labels", []) if lbl.get("name")]
 
             for lbl in label_names:

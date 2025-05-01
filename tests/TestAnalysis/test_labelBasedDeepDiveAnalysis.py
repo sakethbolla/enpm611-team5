@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch, mock_open
-from analysis import analysisThree
+from analysis import labelBasedDeepDiveAnalysis
 
-class TestAnalysisThree(unittest.TestCase):
+class TestlabelBasedDeepDiveAnalysis(unittest.TestCase):
 
     def setUp(self):
         # Sample minimal mock issue dataset
@@ -41,7 +41,7 @@ class TestAnalysisThree(unittest.TestCase):
         mock_json_load.return_value = self.sample_issues
 
         # Should not crash, should print insights
-        analysisThree.run(label="bug")
+        labelBasedDeepDiveAnalysis.run(label="bug")
 
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.load")
@@ -53,7 +53,7 @@ class TestAnalysisThree(unittest.TestCase):
         """
         mock_json_load.return_value = self.sample_issues
 
-        analysisThree.run(label="kind/feature")
+        labelBasedDeepDiveAnalysis.run(label="kind/feature")
 
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.load")
@@ -62,7 +62,7 @@ class TestAnalysisThree(unittest.TestCase):
         Test run() function when no label is provided.
         Should print warning and exit safely.
         """
-        analysisThree.run(label=None)  # Should handle safely
+        labelBasedDeepDiveAnalysis.run(label=None)  # Should handle safely
 
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.load")
@@ -74,7 +74,7 @@ class TestAnalysisThree(unittest.TestCase):
         """
         mock_json_load.return_value = self.sample_issues
 
-        analysisThree.run(label="nonexistent-label")  # Should handle safely
+        labelBasedDeepDiveAnalysis.run(label="nonexistent-label")  # Should handle safely
 
 if __name__ == "__main__":
     unittest.main()

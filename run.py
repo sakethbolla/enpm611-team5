@@ -6,9 +6,8 @@ the command line to run the analyses.
 """
 
 import argparse
-
 import config
-from analysis import analysisThree,analysisTwo,analysisOne
+from analysis import labelBasedDeepDiveAnalysis,frequentLabelAndResolutionTimeAnalysis,contributorAndReactionAnalysis
 
 
 def parse_args():
@@ -46,10 +45,10 @@ config.overwrite_from_args(args)
     
 # Run the feature specified in the --feature flag
 if args.feature == 1:
-    analysisOne.run()
+    contributorAndReactionAnalysis.run()
 elif args.feature == 2:
-    analysisTwo.run()
+    frequentLabelAndResolutionTimeAnalysis.run()
 elif args.feature == 3:
-    analysisThree.run(label=args.label)
+    labelBasedDeepDiveAnalysis.run(label=args.label)
 else:
     print('Need to specify which feature to run with --feature flag.')
