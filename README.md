@@ -32,40 +32,44 @@ Outputs:
 4. Most active contributor and resolved count
 5. Visualization: histogram of close times + annotations
 
-
+```
 enpm611-team5/
-├── analysis/
-│   ├── contributorAndReactionAnalysis.py  # This shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary.
-│   ├── frequentLabelAndResolutionTimeAnalysis.py # The graphical representation of the No of issues vs kind of label with their average resolution time.
-│   ├── labelBasedDeepDiveAnalysis.py     # This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributors.
-├── classDiagram/            # This folder contains the Class Diagram and its code. 
+├── analysis/                        # Core analysis scripts
+│   ├── contributorAndReactionAnalysis.py         # Visualizes top issue creators, closers, and reactions
+│   ├── frequentLabelAndResolutionTimeAnalysis.py # Shows label frequency vs. resolution time
+│   ├── labelBasedDeepDiveAnalysis.py             # Deep dive for a specific label's metrics
+│
+├── classDiagram/                   # Class diagram and source
 │   ├── team_5_class_diagram.svg
-│   ├── team_5_class_diagram  
-├── data/ 
-│   ├── poetry_data.json   # A Json file with all the issues.
-├── entityRelationshipDiagrams/     # This folder contains the Entity Relationship Diagram and its code.        
+│   ├── team_5_class_diagram
+│
+├── data/
+│   ├── poetry_data.json            # GitHub issues dataset
+│
+├── entityRelationshipDiagrams/     # ER diagram files
 │   ├── team_5_erd.svg
 │   ├── team_5_erd.txt
 │   ├── team_5_erd_explaination.txt
-├── figures/                   
-│   ├── Analysis_One_Contributor_and_Reaction_Analysis.png                 
-│   ├── Analysis_Three_Label_Based_Deep_Dive.png            
-│   ├── Analysis_Two_Label_Frequency_and_Resolution_Time.png       
-├── scripts/                   
-│   ├── fetch_issues.py            # Implements the functionality to fetch all the issues by using GITHUB_TOKEN and returns a json file called poetry_data.json that has all the issues.      
-├── tests/                    
+│
+├── figures/                         # Generated analysis plots
+│   ├── Analysis_One_Contributor_and_Reaction_Analysis.png
+│   ├── Analysis_Two_Label_Frequency_and_Resolution_Time.png
+│   ├── Analysis_Three_Label_Based_Deep_Dive.png
+│
+├── scripts/
+│   ├── fetch_issues.py             # Pulls GitHub issues using GITHUB_TOKEN
+│
+├── tests/                          # Unit tests
 │   ├── testAnalysis/
-│       ├── __init__.py
-│       ├── test_contributorAndReactionAnalysis.py
-│       ├── test_frequentLabelAndResolutionTimeAnalysis.py
-│       ├── test_labelBasedDeepDiveAnalysis.py
-│   ├── testScript/             
-│       ├── __init__.py
-│       ├── test_fetch_issues.py
-│   ├── __init__.py
-│   └── test_config.py
+│   │   ├── test_contributorAndReactionAnalysis.py
+│   │   ├── test_frequentLabelAndResolutionTimeAnalysis.py
+│   │   ├── test_labelBasedDeepDiveAnalysis.py
+│   ├── testScript/
+│   │   ├── test_fetch_issues.py
+│   ├── test_config.py
 │   └── test_run.py
-├── testsCoverageReports/    
+│
+├── testsCoverageReports/           # Module-wise test coverage reports
 │   ├── config_Test_Coverage_Report.txt
 │   ├── run_Test_Coverage_Report.txt
 │   ├── ContributorAndReactionAnalysis_Test_Coverage_Report.txt
@@ -73,11 +77,14 @@ enpm611-team5/
 │   ├── LabelBasedDeepDiveAnalysis_Test_Coverage_Report.txt
 │   ├── enpm-611-team5-projectTestCoverageReport.txt
 │   ├── enpm611-Team5-testCoverageReport.pdf
-├── run.py                    # This is the module that will be invoked to run your application. Based on the `--feature` command line parameter, one of the three analyses implemented will be run. Below you can see how to run features.
-├── config.json               # Stores key project settings such as the dataset path and GitHub repository details (owner and repo), allowing consistent and centralized configuration access across your ENPM611 analysis scripts.
-├── config.py                 # Supports configuring the application via the `config.json` file.
-├── ENPM611 Project Charter - Team 5     # A charter file of our project.
-└── requirements.txt          # Dependencies
+│
+├── run.py                          # Main CLI entry point (`--feature` required)
+├── config.json                     # GitHub repo & dataset config
+├── config.py                       # Loads config.json and supports env overrides
+├── ENPM611 Project Charter - Team 5
+└── requirements.txt                # Python dependencies
+
+```
 
 
 ### File Types Used:
