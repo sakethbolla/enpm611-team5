@@ -11,15 +11,13 @@ python -m coverage report --omit="tests/*"
 python -m coverage run --source=analysis,scripts -m unittest discover tests
 python -m coverage html
 --------------------------------------------------------------------------------------
+Ran 19 tests in 0.757s
 
-Ran 4 tests in 0.234s
-
-OK
 Name                        Stmts   Miss  Cover
 -----------------------------------------------
 analysis/analysisOne.py        75      0   100%
-analysis/analysisThree.py      71      1    99%
-analysis/analysisTwo.py        47     47     0%
+analysis/analysisThree.py      72      1    99%
+analysis/analysisTwo.py        48      0   100%
 -----------------------------------------------
-TOTAL                         193     48    75%
+TOTAL                         195      1    99%
 

@@ -49,16 +49,15 @@ class TestFetchIssues(unittest.TestCase):
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["event"], "labeled")
 
-    def test_save_issues_to_json(self):
+    @patch("gzip.open", new_callable=mock_open)
+    def test_save_issues_to_json(self, mocked_file):
         """
-        Test saving issues to JSON file.
+        Test saving issues to a gzip-compressed JSON file.
         """
         sample_issues = [{"id": 1, "title": "Test Issue"}]
-        with patch("builtins.open", mock_open()) as mocked_file:
-            fetch_issues_module.save_issues_to_json(sample_issues, "data/test_output.json")
+        fetch_issues_module.save_issues_to_json(sample_issues, "data/test_output.json.gz")
 
-        # Check file was attempted to be opened
-        mocked_file.assert_called_with("data/test_output.json", "w", encoding="utf-8")
+        mocked_file.assert_called_with("data/test_output.json.gz", "wt", encoding="utf-8")
 
     @patch('scripts.fetch_issues.requests.get')
     def test_add_events_to_issues(self, mock_get):

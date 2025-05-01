@@ -42,7 +42,7 @@ class TestAnalysisOne(unittest.TestCase):
         closers = Counter({"user2": 3, "user3": 1})
         reactions = {"+1": 5, "heart": 2}
         analysisOne.plot_combined(creators, closers, reactions, top_n=2)
-        mock_savefig.assert_called_once_with("Analysis_One_Contributor_and_Reaction_Analysis.png")
+        mock_savefig.assert_called_once_with("figures/Analysis_One_Contributor_and_Reaction_Analysis.png")
         mock_show.assert_called_once()
 
     @patch("matplotlib.pyplot.savefig")
