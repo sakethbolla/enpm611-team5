@@ -39,19 +39,15 @@ Outputs:
 - `config.py`: Supports configuring the application via the `config.json` file.
 - `config.json`: Stores key project settings such as the dataset path and GitHub repository details (owner and repo), allowing consistent and centralized configuration access across your ENPM611 analysis scripts.
 - `run.py`: This is the module that will be invoked to run your application. Based on the `--feature` command line parameter, one of the three analyses implemented will be run. Below you can see how to run features.
-- `ClassDiagram/`: This folder contains the Class Diagram and its code.
-- `EntityRelationshipDiagram/`: This folder contains the Entity Relationship Diagram and its code.
-- `Analysis/analysisOne`: This shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary.
-- `Analysis/analysisTwo`: The graphical representation of the No of issues vs kind of label with their average resolution time.
-- `Analysis/analysisThree`: This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues.
-- `Figures/Analysis 1 Figure.png`: Resultant figure for the Analysis One.
-- `Figures/Analysis 2 Figure.png`: Resultant figure for the Analysis Two.
-- `Figures/Analysis 3 Figure.png`: Resultant figure for the Analysis Three.
+- `classDiagram/`: This folder contains the Class Diagram and its code.
+- `entityRelationshipDiagram/`: This folder contains the Entity Relationship Diagram and its code.
+- `analysis/analysisOne`: This shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary.
+- `analysis/analysisTwo`: The graphical representation of the No of issues vs kind of label with their average resolution time.
+- `analysis/analysisThree`: This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues.
+- `figures/Analysis_One_Contributor_and_Reaction_Analysis.png`: Resultant figure for the Analysis One.
+- `figures/Analysis_Three_Label_Based_Deep_Dive.png`: Resultant figure for the Analysis Two.
+- `figures/Analysis_Two_Label_Frequency_and_Resolution_Time.png`: Resultant figure for the Analysis Three.
 - `ENPM611 Project Charter - Team 5.pdf`: A project file of our project.
-
-### Not Used Files:
-- `data_loader.py`: Utility to load the issues from the provided data file and returns the issues in a runtime data structure (e.g., objects)
-- `model.py`: Implements the data model into which the data file is loaded. The data can then be accessed by accessing the fields of objects.
 
 
 ### File Types Used:
@@ -74,16 +70,16 @@ pip install -r requirements.txt
 
 ### How to Run fetch_issues.py in VS Code
  1. Open VS Code
-    a. Launch Visual Studio Code.
-    b. Open your ENPM611 project folder where fetch_issues.py is located.
+ a. Launch Visual Studio Code.
+ b. Open your ENPM611 project folder where fetch_issues.py is located.
 
- 2. Set Your GitHub Token
-    a. In config.json, make sure the "GITHUB_TOKEN" key is filled with a valid GitHub Personal Access Token to avoid rate limits
+ 3. Set Your GitHub Personal Access Token in the Run Configuration as Environment Variable as below:
+ a. GITHUB_TOKEN
 
-3. Open fetch_issues.py
-  a. In the Explorer sidebar, click fetch_issues.py to open the script.
+4. Open fetch_issues.py
+a. In the Explorer sidebar, click fetch_issues.py to open the script.
 
-4. Run the File
+5. Run the File
 ```
 python fetch_issues.py
 ```
