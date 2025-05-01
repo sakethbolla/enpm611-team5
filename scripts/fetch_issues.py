@@ -1,13 +1,14 @@
 import requests
 import json
 import os
+import gzip
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 if not GITHUB_TOKEN:
     raise ValueError("GitHub token not set in environment variables.")
 
 # GitHub personal access token
-def load_config(config_path="config.json"):
+def load_config(config_path="../config.json"):
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -67,12 +68,11 @@ def add_events_to_issues(issues):
     return issues
 
 
-def save_issues_to_json(issues, file_path="data/poetry_data.json"):
+def save_issues_to_json(issues, file_path="../data/poetry_data.json.gz"):
     # Ensure the directory exists
-    import os
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(issues, f, indent=4)
+    with gzip.open(file_path, "wt", encoding="utf-8") as f:
+        json.dump(issues, f)
     print("Issues with events saved to", file_path)
 
 if __name__ == "__main__":

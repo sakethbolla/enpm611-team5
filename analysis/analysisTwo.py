@@ -81,4 +81,5 @@ def run(top_n=30):
     plt.xticks(rotation=45, ha='right', fontsize=10)
     plt.yticks(fontsize=10)
     plt.tight_layout()
+    plt.savefig('figures/Analysis_Two_Label_Frequency_and_Resolution_Time.png')
     plt.show()
