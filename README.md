@@ -81,7 +81,7 @@ enpm611-team5/
 ├── run.py                          # Main CLI entry point (`--feature` required)
 ├── config.json                     # GitHub repo & dataset config
 ├── config.py                       # Loads config.json and supports env overrides
-├── ENPM611 Project Charter - Team 5
+├── Final Project Charter Report - Group 5 ENPM611 .pdf  # Project Charter file
 └── requirements.txt                # Python dependencies
 
 ```
