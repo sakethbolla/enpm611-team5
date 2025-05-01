@@ -32,22 +32,59 @@ Outputs:
 4. Most active contributor and resolved count
 5. Visualization: histogram of close times + annotations
 
-### Files Description:
+```
+enpm611-team5/
+├── analysis/                        # Core analysis scripts
+│   ├── contributorAndReactionAnalysis.py         # Visualizes top issue creators, closers, and reactions
+│   ├── frequentLabelAndResolutionTimeAnalysis.py # Shows label frequency vs. resolution time
+│   ├── labelBasedDeepDiveAnalysis.py             # Deep dive for a specific label's metrics
+│
+├── classDiagram/                   # Class diagram and source
+│   ├── team_5_class_diagram.svg
+│   ├── team_5_class_diagram
+│
+├── data/
+│   ├── poetry_data.json            # GitHub issues dataset
+│
+├── entityRelationshipDiagrams/     # ER diagram files
+│   ├── team_5_erd.svg
+│   ├── team_5_erd.txt
+│   ├── team_5_erd_explaination.txt
+│
+├── figures/                         # Generated analysis plots
+│   ├── Analysis_One_Contributor_and_Reaction_Analysis.png
+│   ├── Analysis_Two_Label_Frequency_and_Resolution_Time.png
+│   ├── Analysis_Three_Label_Based_Deep_Dive.png
+│
+├── scripts/
+│   ├── fetch_issues.py             # Pulls GitHub issues using GITHUB_TOKEN
+│
+├── tests/                          # Unit tests
+│   ├── testAnalysis/
+│   │   ├── test_contributorAndReactionAnalysis.py
+│   │   ├── test_frequentLabelAndResolutionTimeAnalysis.py
+│   │   ├── test_labelBasedDeepDiveAnalysis.py
+│   ├── testScript/
+│   │   ├── test_fetch_issues.py
+│   ├── test_config.py
+│   └── test_run.py
+│
+├── testsCoverageReports/           # Module-wise test coverage reports
+│   ├── config_Test_Coverage_Report.txt
+│   ├── run_Test_Coverage_Report.txt
+│   ├── ContributorAndReactionAnalysis_Test_Coverage_Report.txt
+│   ├── FrequentLabelAndResolutionTimeAnalysis_Test_Coverage_Report.txt
+│   ├── LabelBasedDeepDiveAnalysis_Test_Coverage_Report.txt
+│   ├── enpm-611-team5-projectTestCoverageReport.txt
+│   ├── enpm611-Team5-testCoverageReport.pdf
+│
+├── run.py                          # Main CLI entry point (`--feature` required)
+├── config.json                     # GitHub repo & dataset config
+├── config.py                       # Loads config.json and supports env overrides
+├── ENPM611 Project Charter - Team 5
+└── requirements.txt                # Python dependencies
 
-- `scripts/fetch_issues.py`: Implements the functionality to fetch all the issues by using GITHUB_TOKEN and returns a json file called poetry_data.json that has all the issues.
-- `data/poetry_data.json`: A Json file with all the issues.
-- `config.py`: Supports configuring the application via the `config.json` file.
-- `config.json`: Stores key project settings such as the dataset path and GitHub repository details (owner and repo), allowing consistent and centralized configuration access across your ENPM611 analysis scripts.
-- `run.py`: This is the module that will be invoked to run your application. Based on the `--feature` command line parameter, one of the three analyses implemented will be run. Below you can see how to run features.
-- `classDiagram/`: This folder contains the Class Diagram and its code.
-- `entityRelationshipDiagram/`: This folder contains the Entity Relationship Diagram and its code.
-- `analysis/analysisOne`: This shows the graphical representation of the Top Issue creators, Top Issue closers and the Emoji Reactions Summary.
-- `analysis/analysisTwo`: The graphical representation of the No of issues vs kind of label with their average resolution time.
-- `analysis/analysisThree`: This accepts a user-input label and returns graphical represenation  of the metrics like Average close time of the label, No of issues, Top contributor, Resolved issues by Top contributor, Time to close, and Total issues.
-- `figures/Analysis_One_Contributor_and_Reaction_Analysis.png`: Resultant figure for the Analysis One.
-- `figures/Analysis_Three_Label_Based_Deep_Dive.png`: Resultant figure for the Analysis Two.
-- `figures/Analysis_Two_Label_Frequency_and_Resolution_Time.png`: Resultant figure for the Analysis Three.
-- `ENPM611 Project Charter - Team 5.pdf`: A project file of our project.
+```
 
 
 ### File Types Used:
@@ -106,6 +143,26 @@ python run.py --feature 3 --label kind/feature
 ```
 
 That will output basic information about the issues to the command line.
+
+
+### Run Tests
+
+```
+python -m coverage run --source=. -m unittest discover -s tests
+python -m coverage report --omit="*/tests/*,*/__init__.py"
+```
+
+### Generate an HTML Test Coverage report of the whole Project
+
+```
+python -m coverage run --source=. -m unittest discover -s tests
+```
+```
+python -m coverage html
+```
+```
+open htmlcov/index.html
+```
 
 
 ## VSCode run configuration
