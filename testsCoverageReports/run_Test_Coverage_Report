@@ -1,0 +1,18 @@
+NOTE:
+1. This file contains "run.py" Test Coverage percentage table .
+
+2. In order to run the coverage of this file (tests/test_run.py) you need to run the below commands.
+
+3. python -m coverage run --source=run -m unittest tests/test_run.py
+python -m coverage report
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+OK
+Name     Stmts   Miss  Cover
+----------------------------
+run.py      21      1    95%
+----------------------------
+TOTAL       21      1    95%
+
