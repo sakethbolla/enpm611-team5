@@ -1,7 +1,7 @@
 NOTE:
-1. This file contains Analysis Three Coverage percentage table .
+1. This file contains "Frequent Label And Resolution Time Analysis" Test Coverage percentage table .
 
-2. In order to run the coverage of this file (tests/TestAnalysis/test_analysis_three.py) you need to run the below commands.
+2. In order to run the coverage of this file (tests/TestAnalysis/test_frequentLabelAndResolutionTimeAnalysis.py) you need to run the below commands.
 
 3. python -m coverage run --source=analysis -m unittest discover tests
 python -m coverage report --omit="tests/*"

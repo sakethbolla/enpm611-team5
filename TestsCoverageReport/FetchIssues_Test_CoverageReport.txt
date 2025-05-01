@@ -1,5 +1,5 @@
 NOTE:
-1. This file contains Scripts/Fetch_Issues Coverage percentage table .
+1. This file contains "Scripts/Fetch_Issues" Coverage percentage table .
 
 2. In order to run the coverage of this file (tests/TestScript/test_fetch_issues.py) you need to run the below commands.
 

@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import patch
 from collections import Counter
-from analysis import analysisOne
+from analysis import contributorAndReactionAnalysis
 
-class TestAnalysisOne(unittest.TestCase):
+class TestcontributorAndReactionAnalysis(unittest.TestCase):
 
     def setUp(self):
         self.sample_data = [
@@ -20,7 +20,7 @@ class TestAnalysisOne(unittest.TestCase):
         ]
 
     def test_analyze_contributors_and_reactions(self):
-        creators, closers, reactions = analysisOne.analyze_contributors_and_reactions(self.sample_data)
+        creators, closers, reactions = contributorAndReactionAnalysis.analyze_contributors_and_reactions(self.sample_data)
         self.assertEqual(creators["user1"], 1)
         self.assertEqual(creators["user2"], 1)
         self.assertEqual(closers["user2"], 1)
@@ -30,7 +30,7 @@ class TestAnalysisOne(unittest.TestCase):
         self.assertNotIn("url", reactions)
 
     def test_analyze_contributors_and_reactions_empty(self):
-        creators, closers, reactions = analysisOne.analyze_contributors_and_reactions([])
+        creators, closers, reactions = contributorAndReactionAnalysis.analyze_contributors_and_reactions([])
         self.assertEqual(len(creators), 0)
         self.assertEqual(len(closers), 0)
         self.assertEqual(len(reactions), 0)
@@ -41,7 +41,7 @@ class TestAnalysisOne(unittest.TestCase):
         creators = Counter({"user1": 2, "user2": 1})
         closers = Counter({"user2": 3, "user3": 1})
         reactions = {"+1": 5, "heart": 2}
-        analysisOne.plot_combined(creators, closers, reactions, top_n=2)
+        contributorAndReactionAnalysis.plot_combined(creators, closers, reactions, top_n=2)
         mock_savefig.assert_called_once_with("figures/Analysis_One_Contributor_and_Reaction_Analysis.png")
         mock_show.assert_called_once()
 
@@ -52,7 +52,7 @@ class TestAnalysisOne(unittest.TestCase):
         closers = Counter()
         reactions = {}
         try:
-            analysisOne.plot_combined(creators, closers, reactions, top_n=2)
+            contributorAndReactionAnalysis.plot_combined(creators, closers, reactions, top_n=2)
         except ValueError:
             self.fail("plot_combined() raised ValueError unexpectedly!")
         mock_savefig.assert_not_called()
@@ -64,7 +64,7 @@ class TestAnalysisOne(unittest.TestCase):
     @patch("matplotlib.pyplot.show")
     def test_run_full_execution(self, mock_show, mock_savefig, mock_json_load, mock_gzip_open):
         mock_json_load.return_value = self.sample_data
-        analysisOne.run()
+        contributorAndReactionAnalysis.run()
         mock_savefig.assert_called_once()
         mock_show.assert_called_once()
 
