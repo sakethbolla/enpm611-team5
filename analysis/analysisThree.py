@@ -128,4 +128,5 @@ def run(label=None):
         plt.xticks(fontsize=9)
         plt.yticks(fontsize=9)
         plt.tight_layout()
+        plt.savefig('figures/Analysis_Three_Label_Based_Deep_Dive.png')
         plt.show()

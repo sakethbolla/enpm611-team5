@@ -85,7 +85,7 @@ def plot_combined(creators, closers, reactions, top_n=10):
     axs[2].yaxis.set_tick_params(labelsize=9)
 
     plt.tight_layout(h_pad=2.5)
-    plt.savefig('combined_issue_analysis.png')
+    plt.savefig('figures/Analysis_One_Contributor_and_Reaction_Analysis.png')
     plt.show()
 
 
