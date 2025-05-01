@@ -1,0 +1,102 @@
+NOTE:
+1. This file contains "enpm611-team5" Test Coverage percentage table .
+
+2. In order to get the coverage of the whole project "enpm611-team5" you need to run the below commands.
+
+3. python -m coverage run --source=. -m unittest discover -s tests
+
+Output:
+
+../Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:61: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[0].set_xticklabels(users_c, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:72: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[1].set_xticklabels(users_cl, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:83: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[2].set_xticklabels(types_r, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 128100 (\N{BUST IN SILHOUETTE}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 128736 (\N{HAMMER AND WRENCH}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 127881 (\N{PARTY POPPER}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+.⚠️ No data to plot.
+.
+📌 Top 10 Issue Creators:
+• user1: 1
+• user2: 1
+
+📌 Top 10 Issue Closers:
+• user2: 1
+• user3: 1
+
+📊 Reactions Summary:
+• +1: 8
+• heart: 2
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:61: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[0].set_xticklabels(users_c, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:72: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[1].set_xticklabels(users_cl, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:83: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[2].set_xticklabels(types_r, ha='right', fontweight='bold')
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 128100 (\N{BUST IN SILHOUETTE}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 128736 (\N{HAMMER AND WRENCH}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/contributorAndReactionAnalysis.py:87: UserWarning: Glyph 127881 (\N{PARTY POPPER}) missing from font(s) DejaVu Sans.
+  plt.tight_layout(h_pad=2.5)
+....
+📌 Label-Based Insight for: 'bug'
+• Total Issues: 2
+• Average Comments: 3.0
+• Average Time to Close: 4.0 days
+
+👥 Most Active Contributor for label 'bug':
+• Number of issues created by top contributor: 1
+• Issues resolved (closed) by top contributor: 1
+• Total unique contributors: 2
+• Most Active Contributor: user1
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/labelBasedDeepDiveAnalysis.py:130: UserWarning: Glyph 127919 (\N{DIRECT HIT}) missing from font(s) DejaVu Sans.
+  plt.tight_layout()
+/Users/bhavnakumari/GitHub/enpm611-team5/analysis/labelBasedDeepDiveAnalysis.py:131: UserWarning: Glyph 127919 (\N{DIRECT HIT}) missing from font(s) DejaVu Sans.
+  plt.savefig('figures/Analysis_Three_Label_Based_Deep_Dive.png')
+.
+📌 Label-Based Insight for: 'kind/feature'
+• Total Issues: 1
+• Average Comments: 1.0
+• Average Time to Close: 2.0 days
+
+👥 Most Active Contributor for label 'kind/feature':
+• Number of issues created by top contributor: 1
+• Issues resolved (closed) by top contributor: 1
+• Total unique contributors: 1
+• Most Active Contributor: user1
+.⚠️ Please provide a label using --label
+.❌ No issues found with label 'nonexistent-label'
+.Fetching events for issue #123...
+.Error fetching events for issue None: 500
+...Fetching issues page 1...
+Error: 500 - <MagicMock name='get().text' id='4528399968'>
+.Fetching issues page 1...
+Fetching issues page 2...
+.Issues with events saved to data/test_output.json.gz
+....................
+----------------------------------------------------------------------
+Ran 38 tests in 0.570s
+
+OK
+
+
+4. python -m coverage report --omit="*/tests/*,*/__init__.py"
+
+Output:
+Name                                                 Stmts   Miss  Cover
+------------------------------------------------------------------------
+analysis/contributorAndReactionAnalysis.py              75      0   100%
+analysis/frequentLabelAndResolutionTimeAnalysis.py      48      0   100%
+analysis/labelBasedDeepDiveAnalysis.py                  72      1    99%
+config.py                                               68      5    93%
+run.py                                                  21      1    95%
+scripts/fetch_issues.py                                 61      4    93%
+------------------------------------------------------------------------
+TOTAL                                                  345     11    97%
+

@@ -1,0 +1,17 @@
+NOTE:
+1. This file contains "config.py" Test Coverage percentage table .
+
+2. In order to run the coverage of this file (tests/test_config.py) you need to run the below commands.
+
+3. python -m coverage run --source=config -m unittest tests/test_config.py
+python -m coverage report
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.006s
+
+OK
+Name        Stmts   Miss  Cover
+-------------------------------
+config.py      68      5    93%
+-------------------------------
+TOTAL          68      5    93%

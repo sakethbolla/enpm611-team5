@@ -1,0 +1,21 @@
+NOTE:
+1. This file contains "scripts/fetch_issues" Coverage percentage table .
+
+2. In order to run the coverage of this file (tests/TestScript/test_fetch_issues.py) you need to run the below commands.
+
+3. python -m coverage run --source=scripts -m unittest discover tests
+python -m coverage report --omit="tests/*"
+
+4. /* IMP */ In order to view the coverage report in an HTML format run the below command:
+
+python -m coverage run --source=analysis,scripts -m unittest discover tests
+python -m coverage html
+--------------------------------------------------------------------------------------
+Ran 11 tests in 0.222s
+
+OK
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+scripts/fetch_issues.py      61      4    93%
+---------------------------------------------
+TOTAL                        61      4    93%

@@ -1,13 +1,7 @@
 import json
 from collections import Counter, defaultdict
 import matplotlib.pyplot as plt
-
-def load_data(filepath):
-    """
-    Loads JSON data from the specified file path.
-    """
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+import gzip
 
 def analyze_contributors_and_reactions(data):
     """
@@ -48,6 +42,9 @@ def plot_combined(creators, closers, reactions, top_n=10):
     - Top issue closers
     - Total reaction counts
     """
+    if not creators or not closers or not reactions:
+        print("⚠️ No data to plot.")
+        return
     top_creators = creators.most_common(top_n)
     top_closers = closers.most_common(top_n)
     reaction_items = sorted(reactions.items(), key=lambda x: x[1], reverse=True)
@@ -88,7 +85,7 @@ def plot_combined(creators, closers, reactions, top_n=10):
     axs[2].yaxis.set_tick_params(labelsize=9)
 
     plt.tight_layout(h_pad=2.5)
-    plt.savefig('combined_issue_analysis.png')
+    plt.savefig('figures/Analysis_One_Contributor_and_Reaction_Analysis.png')
     plt.show()
 
 
@@ -97,8 +94,12 @@ def run():
     Entry point to load data, analyze contributors and reactions,
     print stats, and generate visualization.
     """
-    filepath = "data/poetry_data.json"
-    data = load_data(filepath)
+    """
+    Loads JSON data from the specified file path.
+    """
+    with gzip.open("data/poetry_data.json.gz", "rt", encoding="utf-8") as f:
+        data = json.load(f)
+
     creators, closers, reactions = analyze_contributors_and_reactions(data)
 
     print("\n📌 Top 10 Issue Creators:")
