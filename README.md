@@ -76,8 +76,8 @@ enpm611-team5/
 │   ├── FrequentLabelAndResolutionTimeAnalysis_Test_Coverage_Report.txt
 │   ├── LabelBasedDeepDiveAnalysis_Test_Coverage_Report.txt
 │   ├── team_5_test_failures.txt
-│   ├── team_5_test_coverageReport.txt
-│   ├── team_5_test_coverageReport.pdf
+│   ├── team_5_test_coverage.txt
+│   ├── team_5_test_coverage.pdf
 │
 ├── run.py                          # Main CLI entry point (`--feature` required)
 ├── config.json                     # GitHub repo & dataset config
